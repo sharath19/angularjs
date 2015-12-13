@@ -4,10 +4,24 @@
         <title>angular</title>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
         <script type="text/javascript" src="js/controller.js"></script>
+        <link rel="stylesheet" href="css/stylesheet.css" type="text/css" />
     </head>
-   <div ng-controller="MyController">
-        <h1>{{author.name}}</h1>
-        <p>{{author.title +','+ author.company}}</p>
-        </div>
-    
+    <body>
+    <div ng-controller="Rendersdata"> 
+    <div class="search">
+        <h2>Search Here</h2>
+        <input type="text" ng-model="query" name="searchbox" placeholder="Search by catergeory"/>
+    </div>
+        <ul class="labels" ng-repeat="item in restaurant | filter:query">
+            <li>Restaurant Name: {{item.name}}</li>
+            <li>Restaurant ID: {{item.restaurant_id}}</li>
+            <li>Address: {{item.address.building}}</li>
+            <li>Street: {{item.address.street}}</li>
+            <li>Zipcode: {{item.address.zipcode}}</li>
+            <li>Borough: {{item.borough}}</li>
+            <li>Cuisine: {{item.cuisine}}</li>
+        </ul>
+    </div>
+        
+    </body>
 </html>
